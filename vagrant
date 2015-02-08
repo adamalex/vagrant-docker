@@ -11,6 +11,6 @@ echo CONFIGURING FIG
 cp /vagrant/fig.upstart.conf /etc/init/fig.conf
 ln -s /vagrant/fig.yml /opt/fig/fig.yml
 
-echo REPLACING DEFAULT SSH KEY
+echo INCLUDE DEFAULT SSH KEY TO ALLOW PACKAGING AS BASE BOX
 
 curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub >> .ssh/authorized_keys
