@@ -9,6 +9,7 @@ echo UPGRADING OS PACKAGES
 
 apt-get update
 apt-get upgrade -y
+apt-get install inotify-tools -y
 
 echo INSTALLING DOCKER
 
@@ -21,6 +22,7 @@ gpasswd -a vagrant docker
 echo INSTALLING FIG
 
 curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig
+cp /vagrant/fig.upstart.conf /etc/init/fig.conf
 chmod +x /usr/local/bin/fig
 
 echo REPLACING DEFAULT SSH KEY
