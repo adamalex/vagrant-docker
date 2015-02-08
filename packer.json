@@ -28,7 +28,7 @@
   "post-processors": [
     {
       "type": "atlas",
-      "artifact": "adamalex/dockerimage",
+      "artifact": "adamalex/dockerhost",
       "artifact_type": "digitalocean",
       "metadata": {
         "created_at": "{{timestamp}}"
