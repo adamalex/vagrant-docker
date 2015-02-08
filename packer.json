@@ -1,0 +1,38 @@
+{
+  "builders": [
+    {
+      "type": "digitalocean",
+      "image": "ubuntu-14-04-x64",
+      "snapshot_name": "docker {{timestamp}}",
+      "ssh_username": "root",
+      "droplet_name": "dockerimage",
+      "region": "nyc3",
+      "size": "512mb"
+    }
+  ],
+  "push": {
+    "name": "adamalex/dockerimage"
+  },
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "fig.upstart.conf",
+      "destination": "/etc/init/fig.conf"
+    },
+    {
+      "type": "shell",
+      "script": "machine",
+      "pause_before": "30s"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "atlas",
+      "artifact": "adamalex/dockerimage-artifact",
+      "artifact_type": "aws.ami",
+      "metadata": {
+        "created_at": "{{timestamp}}"
+      }
+    }
+  ]
+}

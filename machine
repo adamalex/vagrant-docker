@@ -15,16 +15,7 @@ echo INSTALLING DOCKER
 
 apt-get install lxc-docker -y
 
-echo CONFIGURING DOCKER
-
-gpasswd -a vagrant docker
-
 echo INSTALLING FIG
 
 curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig
-cp /vagrant/fig.upstart.conf /etc/init/fig.conf
 chmod +x /usr/local/bin/fig
-
-echo REPLACING DEFAULT SSH KEY
-
-curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub >> .ssh/authorized_keys

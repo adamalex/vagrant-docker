@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo CONFIGURING DOCKER
+
+gpasswd -a vagrant docker
+
+echo CONFIGURING FIG
+
+cp /vagrant/fig.upstart.conf /etc/init/fig.conf
+
+echo REPLACING DEFAULT SSH KEY
+
+curl https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub >> .ssh/authorized_keys
