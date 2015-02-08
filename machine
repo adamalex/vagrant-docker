@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
 
 echo ADDING DOCKER REPOSITORY
 
@@ -19,3 +21,4 @@ echo INSTALLING FIG
 
 curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig
 chmod +x /usr/local/bin/fig
+mkdir /opt/fig
